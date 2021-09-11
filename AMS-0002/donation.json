@@ -1,44 +1,3 @@
----
-ams: 1
-title: Algorand Message Standard for donation requests
-status: Draft
----
-
-# Algorand Message Standard for donation requests
-
-## Summary
-
-This document introduces the standard for donation requests through algorand network.
-
-## Abstract
-
-The goal of this standard is to make the requests for funding decentralized and available for everyone. 
-
-## Specification
-
-The key words "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**", "**SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", "**RECOMMENDED**", "**MAY**", and "**OPTIONAL**" in this document are to be interpreted as described in [RFC-2119](https://www.ietf.org/rfc/rfc2119.txt).
-
-JSON is the standard described in [RFC-7159](https://www.ietf.org/rfc/rfc7159.txt).
-
-Note fields must be compliant with [ARC-0002](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0002.md)
-
-## Request for comments
-
-Please comment or suggest pull request for this document here: [https://github.com/scholtz/AMS/issues](https://github.com/scholtz/AMS/issues)
-
-### Request for donation
-
-The blockchain message MUST be self signed message, with amount 800 of basic tokens (0,0008 algo) with specific note structure described below.
-
-Question starts with ```donation/v1:j``` according to ARC-0002, following the json data.
-
-If json data is not valid according to JSON standard, the question MUST NOT be shown to the users.
-
-The account that requested the donation is considered as the requester of the funding.
-
-Json data MUST comply with following json schema:
-
-```
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://scholtz.github.io/AMS/AMS-0002/donation.json",
@@ -140,11 +99,3 @@ Json data MUST comply with following json schema:
     },
     "additionalProperties": false
 }
-```
-
-
-Example:
-```
-donation/v1:j{"title":"My supercool project","reason":"I need 100 USD to buy the ledger device.","amount":100000000,"asset":"312769","url":"https://www.example.com","duration":100000}
-QR content: algorand://TESTAUZJU4JRAPUZBH4FCPYDLEWIFIFRPVILUZBSYP6IBZLYF6M6YVMMX4?amount=800&xnote=donation/v1:j{"title":"My supercool project","reason":"I need 100 USD to buy the ledger device.","amount":100000000,"asset":"312769","url":"https://www.example.com","duration":100000}
-```
