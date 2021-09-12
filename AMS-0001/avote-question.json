@@ -53,6 +53,8 @@
       "duration": {
           "$id": "#/properties/duration",
           "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000,
           "title": "The duration how long the question is valid.",
           "description": "Duration is calculated in number of blocks. If there is 1, the question will have valid votes only in the block of inception, and the next block.",
           "default": 0,
@@ -63,6 +65,8 @@
       "category": {
           "$id": "#/properties/category",
           "type": "string",
+          "minLength": 1,
+          "maxLength": 50,
           "title": "The category",
           "description": "The category of the question. Categories are managed by the questioner.",
           "default": "",
@@ -74,7 +78,7 @@
           "$id": "#/properties/o",
           "type": "object",
           "title": "Valid vote options",
-          "description": "Valid vote options. Object of mapping from code to text of the question.",
+          "description": "Valid vote options. Object of mapping from code to text of the question. The code will be used in vote cast to specify the answer.",
           "default": {},
           "examples": [
               {
@@ -86,5 +90,5 @@
           "additionalProperties": true
       }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

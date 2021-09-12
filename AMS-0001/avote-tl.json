@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "http://example.com/example.json",
+  "$id": "https://scholtz.github.io/AMS/AMS-0001/avote-tl.json",
   "type": "object",
   "title": "Trusted list management schema",
   "description": "Knowledge based pure democracy trusted list JSON document.",
