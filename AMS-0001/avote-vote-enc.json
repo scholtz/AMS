@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://scholtz.github.io/AMS/AMS-0001/avote-vote-enc.json",
+    "type": "object",
+    "title": "Vote cast schema",
+    "description": "Knowledge based pure democracy answer JSON document in encrypted form.",
+    "default": {},
+    "examples": [
+        {"nonce":"ftGVJfrKJg+PPNCMbKPdLMN3OKNNnHDk","otPK":"w955HlFMM4e9dD1OQv31k4npHhs/w4QWc5Q1tcjxFkM=","cT":"O+M+3Y78RdxnMD6mJfNrfi8eT7dKmAFxJCq4z8Zb/lob+7tWptW1hPQWe60lmT64YLNdMSrPd9N0Wszr6AQFar5jbekHmM/YME/FEf4FjpYBLOwXK54MNy+8LOORNp1f"}
+    ],
+    "required": [
+        "nonce",
+        "otPK",
+        "cT"
+    ],
+    "properties": {
+        "nonce": {
+            "$id": "#/properties/nonce",
+            "type": "string",
+            "title": "Nonce",
+            "description": "Base64 data of random number. Byte length: nacl.box.nonceLength. const nonce = nacl.randomBytes(nacl.box.nonceLength);",
+            "examples": [
+                "ftGVJfrKJg+PPNCMbKPdLMN3OKNNnHDk"
+            ],
+            "additionalProperties": false
+        },
+        "otPK": {
+            "$id": "#/properties/otPK",
+            "type": "string",
+            "title": "Encryption public key",
+            "description": "Public key of randomly generated key pair when encoding the message. const otKeyPair = nacl.box.keyPair();",
+            "examples": [
+                "w955HlFMM4e9dD1OQv31k4npHhs/w4QWc5Q1tcjxFkM="
+            ],
+            "additionalProperties": false
+        },
+        "cT": {
+            "$id": "#/properties/cT",
+            "type": "string",
+            "title": "Cipher text",
+            "description": "Public key of randomly generated key pair when encoding the message. const cipherText = nacl.box(Buffer.from(encMsg),nonce,rcptPubKey,otKeyPair.secretKey)",
+            "examples": [
+                "O+M+3Y78RdxnMD6mJfNrfi8eT7dKmAFxJCq4z8Zb/lob+7tWptW1hPQWe60lmT64YLNdMSrPd9N0Wszr6AQFar5jbekHmM/YME/FEf4FjpYBLOwXK54MNy+8LOORNp1f"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}
