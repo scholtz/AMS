@@ -86,6 +86,18 @@
                 "56N75BOUSBSJALOWRQMJ7BU5JZHTEQCJP2PXHUCUXVOQJ4FPIKISV3UQB4"
             ]
         },
+        "etg": {
+            "$id": "#/properties/etg",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 50,
+            "title": "Eligible token group",
+            "description": "NFT DAOs uses the managed list of tokens.",
+            "default": "",
+            "examples": [
+                "mydao-nfts-premium"
+            ]
+        },
         "o": {
             "$id": "#/properties/o",
             "type": "object",
