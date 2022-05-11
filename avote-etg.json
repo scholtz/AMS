@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://scholtz.github.io/AMS/AMS-0001/avote-etg.json",
+    "type": "object",
+    "title": "Eligible token group",
+    "description": "Eligible token group allows to define tokens which are eligible for voting.",
+    "default": {},
+    "examples": [
+        [{"name": "my-nfts","commands": [{"cmd":"add-token","id":"452399768","weight":1},{"cmd":"remove-token","id":"452399767"},{"cmd":"add-creator","id":"P65LXHA5MEDMOJ2ZAITLZWYSU6W25BF2FCXJ5KQRDUB2NT2T7DPAAFYT3U","weight":1},{"cmd":"remove-creator","id":"P65LXHA5MEDMOJ2ZAITLZWYSU6W25BF2FCXJ5KQRDUB2NT2T7DPAAFYT3U"},{"cmd":"add-creator","id":"P65LXHA5MEDMOJ2ZAITLZWYSU6W25BF2FCXJ5KQRDUB2NT2T7DPAAFYT3U","weight":2},{"cmd":"add-token","id":"452399768","weight":3}]}]
+    ],
+    "required": [
+        "name",
+        "commands"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "Name of eligible token group",
+            "minLength": 0,
+            "maxLength": 50,
+            "description": "Name or code of the eligible token group used in the question.",
+            "examples": [
+                "mydao-nfts-premium"
+            ],
+            "additionalProperties": false
+        },
+        "commands": {
+            "$id": "#/properties/commands",
+            "type": "array",
+            "title": "Commands",
+            "description": "List of commands to add or remove token from the group, or add or remove creator and all his tokens from the group",
+            "examples": [
+                "ftGVJfrKJg+PPNCMbKPdLMN3OKNNnHDk"
+            ],
+            "additionalProperties": false,
+            "items": {
+                "title": "Eligible token group command",
+                "description": "Eligible token group command to add or remove token or creator.",
+                "type": "object",
+                "properties": {
+                    "cmd": {
+                        "$id": "#/properties/cmd",
+                        "type": "string",
+                        "title": "Command",
+                        "description": "Command to add or remove token from the group, or add or remove creator and all his tokens from the group",
+                        "examples": ["add-token", "remove-token", "add-creator", "remove-creator"],
+                        "additionalProperties": false,
+                        "enum": ["add-token", "remove-token", "add-creator", "remove-creator"]
+                    },
+                    "id": {
+                        "$id": "#/properties/id",
+                        "type": "string",
+                        "title": "ID",
+                        "description": "Identifier of the asset or creator",
+                        "examples": ["452399768", "remove-P65LXHA5MEDMOJ2ZAITLZWYSU6W25BF2FCXJ5KQRDUB2NT2T7DPAAFYT3U"],
+                        "additionalProperties": false
+                    },
+                    "weight": {
+                        "$id": "#/properties/weight",
+                        "type": "number",
+                        "title": "Weight of voting power",
+                        "description": "Weight of voting power",
+                        "examples": [1, 1.1, 1000],
+                        "additionalProperties": false
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
+    }
+}
