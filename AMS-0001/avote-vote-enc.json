@@ -6,14 +6,27 @@
     "description": "Knowledge based pure democracy answer JSON document in encrypted form.",
     "default": {},
     "examples": [
-        {"nonce":"ftGVJfrKJg+PPNCMbKPdLMN3OKNNnHDk","otPK":"w955HlFMM4e9dD1OQv31k4npHhs/w4QWc5Q1tcjxFkM=","cT":"O+M+3Y78RdxnMD6mJfNrfi8eT7dKmAFxJCq4z8Zb/lob+7tWptW1hPQWe60lmT64YLNdMSrPd9N0Wszr6AQFar5jbekHmM/YME/FEf4FjpYBLOwXK54MNy+8LOORNp1f"}
+        {"q":"CRID3AHJGGVE75UTDO5GI7PXM6PUD6WXB7BTAD3IPWFTMUXUKHDA","nonce":"ftGVJfrKJg+PPNCMbKPdLMN3OKNNnHDk","otPK":"w955HlFMM4e9dD1OQv31k4npHhs/w4QWc5Q1tcjxFkM=","cT":"O+M+3Y78RdxnMD6mJfNrfi8eT7dKmAFxJCq4z8Zb/lob+7tWptW1hPQWe60lmT64YLNdMSrPd9N0Wszr6AQFar5jbekHmM/YME/FEf4FjpYBLOwXK54MNy+8LOORNp1f"}
     ],
     "required": [
+        "q",
         "nonce",
         "otPK",
         "cT"
     ],
     "properties": {
+        "q": {
+            "$id": "#/properties/q",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60,
+            "title": "The question id",
+            "description": "Tx id of the question message from the blockchain",
+            "default": "",
+            "examples": [
+                "CRID3AHJGGVE75UTDO5GI7PXM6PUD6WXB7BTAD3IPWFTMUXUKHDA"
+            ]
+        },
         "nonce": {
             "$id": "#/properties/nonce",
             "type": "string",
