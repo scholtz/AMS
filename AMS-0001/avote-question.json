@@ -1,94 +1,118 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "http://www.a-wallet.net/AMS/avote-question.json",
-  "type": "object",
-  "title": "Question schema",
-  "description": "Knowledge based pure democracy question JSON document.",
-  "default": {},
-  "examples": [
-      {
-          "t": "Best project",
-          "q": "Decide which project is the best\nA - AAA\nB - BBB\nC - CCC",
-          "duration": 100,
-          "category": "community",
-          "o": {
-              "A": "AAA",
-              "B": "BBB",
-              "C": "CCC"
-          }
-      }
-  ],
-  "required": [
-      "t",
-      "q",
-      "duration",
-      "category",
-      "o"
-  ],
-  "properties": {
-      "t": {
-          "$id": "#/properties/t",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50,
-          "title": "Title of the question",
-          "description": "Title shown in the table of the questions",
-          "default": "",
-          "examples": [
-              "Best project"
-          ]
-      },
-      "q": {
-          "$id": "#/properties/q",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 500,
-          "title": "Question text",
-          "description": "The text of the question. MAY contain new lines specified as \n. ",
-          "default": "",
-          "examples": [
-              "Decide which project is the best\nA - AAA\nB - BBB\nC - CCC"
-          ]
-      },
-      "duration": {
-          "$id": "#/properties/duration",
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 1000000,
-          "title": "The duration how long the question is valid.",
-          "description": "Duration is calculated in number of blocks. If there is 1, the question will have valid votes only in the block of inception, and the next block.",
-          "default": 0,
-          "examples": [
-              100
-          ]
-      },
-      "category": {
-          "$id": "#/properties/category",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50,
-          "title": "The category",
-          "description": "The category of the question. Categories are managed by the questioner.",
-          "default": "",
-          "examples": [
-              "community"
-          ]
-      },
-      "o": {
-          "$id": "#/properties/o",
-          "type": "object",
-          "title": "Valid vote options",
-          "description": "Valid vote options. Object of mapping from code to text of the question. The code will be used in vote cast to specify the answer.",
-          "default": {},
-          "examples": [
-              {
-                  "A": "AAA",
-                  "B": "BBB",
-                  "C": "CCC"
-              }
-          ],
-          "additionalProperties": true
-      }
-  },
-  "additionalProperties": false
-}
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://scholtz.github.io/AMS/AMS-0001/avote-question.json",
+    "type": "object",
+    "title": "Question schema",
+    "description": "Knowledge based pure democracy question JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "t": "Best project",
+            "q": "Decide which project is the best\nA - AAA\nB - BBB\nC - CCC",
+            "duration": 100,
+            "category": "community",
+            "o": {
+                "A": "AAA",
+                "B": "BBB",
+                "C": "CCC"
+            }
+        }
+    ],
+    "required": [
+        "t",
+        "q",
+        "duration",
+        "category",
+        "o"
+    ],
+    "properties": {
+        "t": {
+            "$id": "#/properties/t",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "title": "Title of the question",
+            "description": "Title shown in the table of the questions",
+            "default": "",
+            "examples": [
+                "Best project"
+            ]
+        },
+        "q": {
+            "$id": "#/properties/q",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "title": "Question text",
+            "description": "The text of the question. MAY contain new lines specified as \n. ",
+            "default": "",
+            "examples": [
+                "Decide which project is the best\nA - AAA\nB - BBB\nC - CCC"
+            ]
+        },
+        "duration": {
+            "$id": "#/properties/duration",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000000,
+            "title": "The duration how long the question is valid.",
+            "description": "Duration is calculated in number of blocks. If there is 1, the question will have valid votes only in the block of inception, and the next block.",
+            "default": 0,
+            "examples": [
+                100
+            ]
+        },
+        "category": {
+            "$id": "#/properties/category",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "title": "The category",
+            "description": "The category of the question. Categories are managed by the questioner.",
+            "default": "",
+            "examples": [
+                "community"
+            ]
+        },
+        "e": {
+            "$id": "#/properties/encryptionAddress",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "title": "Encryption address",
+            "description": "The encryption address for encyption purposes according to Extension 3 of the specifications.",
+            "default": "",
+            "examples": [
+                "56N75BOUSBSJALOWRQMJ7BU5JZHTEQCJP2PXHUCUXVOQJ4FPIKISV3UQB4"
+            ]
+        },
+        "etg": {
+            "$id": "#/properties/etg",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 50,
+            "title": "Eligible token group",
+            "description": "NFT DAOs uses the managed list of tokens.",
+            "default": "",
+            "examples": [
+                "mydao-nfts-premium"
+            ]
+        },
+        "o": {
+            "$id": "#/properties/o",
+            "type": "object",
+            "title": "Valid vote options",
+            "description": "Valid vote options. Object of mapping from code to text of the question. The code will be used in vote cast to specify the answer.",
+            "default": {},
+            "examples": [
+                {
+                    "A": "AAA",
+                    "B": "BBB",
+                    "C": "CCC"
+                }
+            ],
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": false
+  }
